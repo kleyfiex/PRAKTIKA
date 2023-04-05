@@ -1,5 +1,5 @@
 body {
-    width: 1152px;
+   
     margin: 0 auto;
     font-family: "Heebo_regular", "Arial", sans-serif;
 }
@@ -52,7 +52,7 @@ section {
 }
 
 .container {
-    width: 870px;
+    width: 900px;
     max-width: 100%;
     margin: 0 auto;
     margin-bottom: 80px;
@@ -65,6 +65,7 @@ section {
 .about_content {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap-reverse;
 }
 
 .p1 {
@@ -142,6 +143,7 @@ section {
 .block_of_posts {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .post {
@@ -215,7 +217,7 @@ section {
     display: flex;
     margin-top: 30px;
     padding-bottom: 15px;
-    border-bottom: 1px solid #E0E0E0;;
+    border-bottom: 1px solid #E0E0E0;
 }
 
 .featured_card_content {
@@ -343,4 +345,180 @@ section {
 
 .tg {
     background: url(../images/tg.svg) no-repeat center center;
+}
+
+#menu__toggle {
+    order: 4;
+    opacity: 0;
+}
+
+.menu__btn {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    width: 52px;
+    height: 52px;
+    right: 30px;
+    top: 20px;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+.menu__btn>span,
+.menu__btn>span::before,
+.menu__btn>span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: black;
+}
+
+.menu__btn>span::before {
+    content: '';
+    top: -16px;
+}
+
+.menu__btn>span::after {
+    content: '';
+    top: 16px;
+}
+
+#menu__toggle {
+    position: absolute;
+    width: 0.1px;
+}
+
+/* Adaptive */
+
+@media screen and (max-width:1099px){
+    .block_of_posts .post {
+        margin: 0 auto;
+    }
+    .block_of_posts .fpost  {
+        margin-bottom: 20px;
+    }
+    .p4 {
+        display: none;
+    }
+    .top_line {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width:967px){
+    header {
+        margin-bottom: 33px;
+    }
+    .left_text {
+        margin: 0 auto;
+        text-align: center;
+    }
+    .photo {
+        margin-top: 0;
+    }
+    .right_photo {
+        margin: 0 auto;
+        margin-bottom: 35px;
+    }
+    .about_content{
+        margin-top: 200px;
+    }
+    .p1 {
+        margin-bottom: 12px;
+    }
+    .p2 {
+        margin-bottom: 36px;
+    }
+    .featured_text_h1 {
+        text-align: center;
+    }
+    .pic_card {
+        width: 339px;
+        height: 230px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+
+    .menu__btn {
+        visibility: visible;
+    }
+    .m1 {
+        margin: 0;
+        color: white;
+    }
+    .menu {
+        height: 0;
+        overflow: hidden;
+        width: 100%;
+        opacity: 0;
+        transition: .3s;
+        position: absolute;
+        top: 90px;
+        left: 0;
+        right: 0;
+    }
+    .menu_ul {
+        width: 100%;
+        height: 100px;
+        background-color: black;
+        margin: 0;
+        padding: 0;
+        justify-content: space-around;
+        align-items: center;
+    }
+    #menu__toggle:checked~.menu {
+        opacity: 1;
+        height: 100px;
+    }
+    #menu__toggle:checked~.menu__btn>span {
+        transform: rotate(45deg);
+    }
+    #menu__toggle:checked~.menu__btn>span::before {
+        top: 0;
+        transform: rotate(0);
+    }
+    #menu__toggle:checked~.menu__btn>span::after {
+        top: 0;
+        transform: rotate(90deg);
+    }
+    #menu__toggle:checked~.menu__li {
+        visibility: visible;
+        left: 0;
+    }
+    .menu__btn>span,
+    .menu__btn>span::before,
+    .menu__btn>span::after {
+        transition-duration: .25s;
+    }
+    .menu__box {
+        transition-duration: .25s;
+    }
+    .menu__item {
+        transition-duration: .25s;
+    }
+}
+
+@media screen and (max-width:1082px){
+    .featured_text_h1 {
+        text-align: center;
+    }
+    .pic_card {
+        width: 339px;
+        height: 230px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+    .featured_card_content {
+        width: 339px;
+        max-width: 100%;
+    }
+}
+@media screen and (max-width:654px){
+    .featured_card {
+        flex-direction: column;
+        width: 80%;
+        align-items: center;
+        margin: 10px auto 0 auto;
+    }
 }
